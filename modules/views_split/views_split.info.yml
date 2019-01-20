@@ -1,0 +1,13 @@
+name: Views Split
+type: module
+description: Views display plugin that allows the first xx results in a different viewmode
+# core: 8.x
+package: Views
+dependencies:
+  - views
+
+# Information added by Drupal.org packaging script on 2018-03-05
+version: '8.x-1.1'
+core: '8.x'
+project: 'views_split'
+datestamp: 1520265784

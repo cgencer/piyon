@@ -1,0 +1,12 @@
+name: 'Reveal.js'
+type: 'module'
+description: 'Reveal.js integration for Views.'
+# core: '8.x'
+dependencies:
+  - drupal:views
+
+# Information added by Drupal.org packaging script on 2018-08-28
+version: '8.x-1.0-alpha1'
+core: '8.x'
+project: 'revealjs'
+datestamp: 1535444419

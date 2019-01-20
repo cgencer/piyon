@@ -1,0 +1,15 @@
+name: Mason
+type: module
+description: "Provides Mason integration to create a perfect gapless grid of elements."
+# version: VERSION
+# core: 8.x
+package: Blazy
+dependencies:
+  - drupal:views
+  - blazy:blazy
+
+# Information added by Drupal.org packaging script on 2016-11-29
+version: '8.x-1.0-beta4'
+core: '8.x'
+project: 'mason'
+datestamp: 1480434802

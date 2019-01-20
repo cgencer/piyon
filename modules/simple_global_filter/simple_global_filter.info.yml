@@ -1,0 +1,14 @@
+name: 'Simple global filter'
+type: module
+description: 'Set global filters on your side in a simple way'
+# core: 8.x
+package: 'Filters'
+dependencies:
+  - session_cache
+  - taxonomy
+
+# Information added by Drupal.org packaging script on 2018-09-17
+version: '8.x-1.1'
+core: '8.x'
+project: 'simple_global_filter'
+datestamp: 1537200786

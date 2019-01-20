@@ -1,0 +1,53 @@
+name: 'Features Unix'
+description: 'Features Unix - Import content type, field, view ... for Unix theme.'
+type: module
+core: 8.x
+dependencies:
+  - address
+  - block
+  - block_content
+  - comment
+  - commerce
+  - commerce_cart
+  - commerce_checkout
+  - commerce_order
+  - commerce_payment
+  - commerce_payment_example
+  - commerce_paypal
+  - commerce_price
+  - commerce_product
+  - commerce_store
+  - ctools
+  - datetime
+  - entity_reference_revisions
+  - field
+  - field_collection
+  - file
+  - gavias_content_builder
+  - gavias_hook_themer
+  - gavias_view
+  - gavias_views_magazine
+  - gaviasthemer
+  - image
+  - imce
+  - inline_entity_form
+  - menu_ui
+  - node
+  - options
+  - paragraphs
+  - path
+  - pathauto
+  - profile
+  - rdf
+  - simplenews
+  - state_machine
+  - system
+  - taxonomy
+  - text
+  - user
+  - views
+  - views_infinite_scroll
+  - webform
+  - config_update
+  - features
+version: 8.x-1.0

@@ -1,0 +1,11 @@
+name: Date Pager
+type: module
+description: A Date Pager Views Plugin
+# core: 8.x
+package: views
+
+# Information added by Drupal.org packaging script on 2017-12-19
+version: '8.x-1.0-beta1+1-dev'
+core: '8.x'
+project: 'date_pager'
+datestamp: 1513690087

@@ -1,0 +1,31 @@
+<?php
+/**
+ * Implements hook_theme().
+**/
+function simple_glossary_theme() {
+    global $base_url;
+    $theme['backend_list_view'] = [
+      'variables' => ['terms_data' => NULL],
+      'template' => 'backend_list_view'
+    ];
+    $theme['forntend_list_view'] = [
+      'variables' => ['terms_data' => NULL, 'config'=> NULL, 'base_url'=>$base_url, 'qry_string' =>NULL],
+      'template' => 'forntend_list_view'
+    ];
+    $theme['help_tab_view'] = [
+      'variables' => ['help_data' => NULL],
+      'template' => 'help_tab_view' 
+    ];
+    return $theme; 
+}
+
+/**
+ * Implements hook_init().
+**/
+function simple_glossary_init() {
+    $crnt_path 	= \Drupal::request()->query->get('q');
+    // Disable Caching of glossary pages for frontend
+    if (drupal_match_path($crnt_path,'glossary/*')  ||  drupal_match_path($crnt_path,'glossary')) {
+      $GLOBALS['conf']['cache'] = FALSE;
+    }
+}

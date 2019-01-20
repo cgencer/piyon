@@ -1,0 +1,24 @@
+visualn.admin_config_visualn:
+  route_name: visualn.admin_config_visualn
+  parent: system.admin_config_media
+  title: Visualization
+  weight: 0
+entity.visualn_style.collection:
+  title: 'Visualization styles'
+  route_name: entity.visualn_style.collection
+  description: 'List Visualization styles'
+  parent: visualn.admin_config_visualn
+  weight: 1
+entity.visualn_drawer.collection:
+  title: 'User-definded drawers (subdrawers)'
+  route_name: entity.visualn_drawer.collection
+  description: 'List user-defined Visualization drawers'
+  parent: visualn.admin_config_visualn
+  weight: 2
+entity.visualn_setup.collection:
+  title: 'Drawer setups'
+  route_name: entity.visualn_setup.collection
+  description: 'List ready to use drawer setups'
+  parent: visualn.admin_config_visualn
+  weight: 3
+

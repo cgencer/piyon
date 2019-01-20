@@ -1,0 +1,12 @@
+name: TCKN webform element
+description: Allows you to add a webform element for getting user's TCKN (Turkish Republic Identification Number).
+type: module
+# core: 8.x
+dependencies:
+  - webform:webform_ui
+
+# Information added by Drupal.org packaging script on 2017-07-26
+version: '8.x-1.4'
+core: '8.x'
+project: 'tckn_webform_element'
+datestamp: 1501063145

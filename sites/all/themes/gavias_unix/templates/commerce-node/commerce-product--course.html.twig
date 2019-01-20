@@ -1,0 +1,189 @@
+{#
+/**
+ * @file
+ *
+ * Default product template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<article{{ attributes}}>
+  <div class="single-course">
+    <div class="single-course-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-xs-12">
+            <h1 {{ title_attributes.addClass('post-title') }}>{{ product.title }}</h1>
+            <div class="headline">{{ product.field_course_headline }}</div>
+            <div class="what-learn">{{ product.field_what_learn }}</div>
+          </div>  
+        </div>  
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-xs-12 col-md-push-8 course-right">
+          
+          <div class="image course-images lightGallery">
+            {% if product.field_course_images %}
+              {{ product.field_course_images }} 
+            {% endif %}
+            {% if video_link %}
+                <a class="video-link popup-video" href="{{ video_link }}"><i class="fa fa-video-camera"></i> {{'Preview'|t}}</a>
+            {% endif %}
+          </div>
+          <div class="course-right-content clearfix">
+            <div class="add-to-cart-content-inner">
+              {% if price_display %}
+                <div class="field--name-price">{{ price_display }}</div>
+              {% else %}  
+                {{product.variation_price|raw}}
+              {% endif %}  
+              {{product.variations|raw}}
+            </div>
+
+            <div class="course-meta clearfix">
+              <div class="block-course-title">{{'Lessons Of Course'}}</div>
+              {% if product.field_course_teacher %}
+                <div class="meta-item">
+                  <div class="content">
+                    <div class="lab">{{ 'Teacher'|t }}</div>
+                    <div class="val">{{ product.field_course_teacher }}</div>
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if product.field_course_category %}
+                <div class="meta-item">
+                  <div class="content">
+                    <div class="lab">{{ 'Category'|t }}</div>
+                    <div class="val">{{ product.field_course_category }}</div>
+                  </div>
+                </div>
+              {% endif %}  
+          
+              {% if product.field_course_duration %}
+                <div class="meta-item">
+                  <div class="content">
+                    <div class="lab">{{ 'Duration Time'|t }}</div>
+                    <div class="val">{{ product.field_course_duration }}</div>
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if product.field_course_level %}
+                <div class="meta-item">
+                  <div class="content">
+                    <div class="lab">{{ 'Level'|t }}</div>
+                    <div class="val">{{ product.field_course_level }}</div>
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if product.field_course_student %}
+                <div class="meta-item">
+                  <div class="content">
+                    <div class="lab">{{ 'Students'|t }}</div>
+                    <div class="val">{{ product.field_course_student }}</div>
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if product.variation_price %}
+                <div class="meta-item">
+                  <div class="content">
+                    <div class="lab">{{ 'Price'|t }}</div>
+                    <div class="val">
+                      {% if price_display %}
+                        {{ price_display }}
+                      {% else %}  
+                        {{ product.variation_price }}
+                      {% endif %}  
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+
+            {% set field_course_includes %}{{product.field_course_includes}}{% endset %}
+
+            {% if field_course_includes %}
+              <div class="course-includes">
+                <div class="block-course-title">{{'Includes'}}</div>
+                <div class="content-inner">{{ field_course_includes }}</div>
+              </div> 
+            {% endif %}  
+
+            <div class="course-sharing">
+              <a data-toggle="tooltip" data-placement="left" data-animation="true"  data-original-title="Facebook" href="http://www.facebook.com/sharer.php?s=100&p&#91;url&#93;={{base_url}}{{product_url}}&p&#91;title&#93;={{title}}" target="_blank">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a data-toggle="tooltip" data-placement="left" data-animation="true"  data-original-title="Twitter" href="https://twitter.com/intent/tweet?text={{title}}&url={{base_url}}{{product_url}}" target="_blank">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a data-toggle="tooltip" data-placement="left" data-animation="true"  data-original-title="LinkedIn" href="http://linkedin.com/shareArticle?mini=true&amp;url={{base_url}}{{product_url}}&amp;title={{title}}" target="_blank">
+                <i class="fa fa-linkedin"></i>
+              </a>
+              <a data-toggle="tooltip" data-placement="left" data-animation="true"  data-original-title="Email" href="mailto:?subject={{title}}&amp;body={{base_url}}{{product_url}}">
+                <i class="fa fa-envelope-open"></i>
+              </a>
+            </div>
+
+          </div>  
+
+          <div class="course-recent block-info margin-top-20">
+            <div class="block-course-title">{{'Recent Courses'|t}}</div>
+            <div class="content-inner">{{ drupal_view('courses', 'recent_courses') }}</div>
+          </div>
+
+        </div>
+
+        <div class="col-md-8 col-xs-12 col-md-pull-4 course-left">
+          <div class="row-overlay"></div>
+          <div class="course-content">
+
+            <div class="post-content">
+              <div {{ content_attributes.addClass('node__content', 'clearfix') }}>
+                {{- product|without('field_course_headline','field_course_includes', 'field_what_learn', 'field_course_level', 'field_course_features', 'field_course_featured', 'field_course_teacher', 'field_course_duration', 'field_course_images', 'comment', 'field_course_video', 'variation_price', 'variations' ,'field_course_category', 'field_course_comment') -}}
+              </div>
+            </div>
+          </div>
+
+          <div class="course-features">
+            <div class="block-course-title">{{'Course Features'|t}}</div>
+            {{ product.field_course_features }}
+          </div>
+
+          <div class="course-lessons block-info">
+            <div class="block-course-title">{{'Lessons Of Course'|t}}</div>
+            <div class="content-inner">{{ drupal_view('lessons', 'lesson_block') }}</div>
+          </div>
+          
+          {% if product.field_course_comment %}
+            <div id="node-single-comment">
+              {{ product.field_course_comment }}
+            </div>
+          {% endif %}
+
+        </div>  
+      
+      </div>
+    </div>  
+    
+    
+  </div>
+</article>

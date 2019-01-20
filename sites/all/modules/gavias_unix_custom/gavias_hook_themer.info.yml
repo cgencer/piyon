@@ -1,0 +1,6 @@
+type: module
+name : Gavias Unix Themer
+description : Gavias Unix Themer
+package: gavias
+core: '8.x'
+project: 'gavias_hook_themer'

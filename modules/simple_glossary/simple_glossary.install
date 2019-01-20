@@ -1,0 +1,69 @@
+<?php
+/**
+ * Implements hook_install().
+ */
+function simple_glossary_install() {  
+  // Set Configuration Values
+    $configData 				                      = []; 
+    $configData['glossary_page_title']        = 'Simple Glossary Page';
+    $configData['glossary_page_subheading']   = 'A glossary, also known as a vocabulary or clavis, is an alphabetical list of terms in a particular domain of knowledge with the definitions for those terms.';
+    $configData['glossary_bg_image']          = ''; 
+    $configData['glossary_bottom_text']       = 'Lorem ipsum dolor sit amet, at tale congue neglegentur ius, vim id quem appetere convenire. Probo adhuc deleniti nec id. Albucius repudiare efficiendi vix at, in vis mollis mnesarchum, an porro tempor repudiare has. Ne eos fastidii iudicabit imperdiet.'; 
+    foreach($configData as $key=>$val) {
+       \Drupal::state()->set($key, $val);
+    }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function simple_glossary_uninstall() {
+  // Delete Configuration Values
+  $configData   = ['glossary_page_title', 'glossary_page_subheading', 'glossary_page_subheading', 'glossary_bg_image', 'glossary_bottom_text'];
+  foreach($configData as $val) {
+    \Drupal::state()->delete($val);
+  }
+  // Drop Glossary Table
+  db_drop_table('simple_glossary_content');
+}
+
+/**
+ * Implements hook_schema(). 
+ */
+function simple_glossary_schema() {
+  $table_name = "simple_glossary_content";
+  if (!db_table_exists($table_name)) {
+      $schema[$table_name] = array(
+        'description' => 'Store glossary content entries.', 
+        'fields' => array(
+          'gid' => array(
+            'type' => 'serial',
+            'not null' => TRUE,
+            'description' => 'Primary Key: Unique glossary ID.'
+          ),
+          'term' => array(
+            'type' => 'varchar',
+            'length' => 256,
+            'not null' => TRUE,
+            'default' => '',
+            'description' => 'Gloassary Term Name.' 
+          ),
+          'description' => array(
+            'type' => 'varchar',
+            'length' => 2048,
+            'not null' => TRUE,
+            'default' => '',
+            'description' => 'Description of Glossary term'
+          )
+        ),
+        'primary key' => array('gid'), 
+        'indexes' => array(
+          'term' => array('term'),
+          'description' => array('description')
+        ),
+      );
+      return $schema;
+  } else { 
+    drupal_set_message("Sorry! Invalid request for installing this module. You are already having a database table i.e. simple_glossary_content.","error"); 
+  }
+}

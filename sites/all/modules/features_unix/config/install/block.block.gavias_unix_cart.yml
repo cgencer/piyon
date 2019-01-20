@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_cart
+    - gaviasthemer
+  theme:
+    - gavias_unix
+third_party_settings:
+  gaviasthemer:
+    classes: ''
+id: gavias_unix_cart
+theme: gavias_unix
+region: cart
+weight: 0
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  provider: commerce_cart
+  label_display: '0'
+  dropdown: true
+visibility: {  }

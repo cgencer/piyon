@@ -1,0 +1,13 @@
+name: Owner or Admin Filter
+type: module
+description: Filter view results by a combination of entity owner and logged-in user permissions.
+# core: 8.x
+package: Views
+dependencies:
+  - views
+
+# Information added by Drupal.org packaging script on 2016-09-30
+version: '8.x-1.0'
+core: '8.x'
+project: 'owner_or_admin'
+datestamp: 1475235840

@@ -1,0 +1,15 @@
+name: Chatroom
+type: module
+description: 'Allows the creation of chatrooms.'
+package: Chat
+# version: 8.x-1.x
+# core: 8.x
+dependencies:
+  - field
+  - nodejs
+
+# Information added by Drupal.org packaging script on 2016-01-31
+version: '8.x-1.0-beta1'
+core: '8.x'
+project: 'chatroom'
+datestamp: 1454277253

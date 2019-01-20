@@ -1,0 +1,14 @@
+name: VisualN Block
+type: module
+description: Enables a block type to store reference url and draw a visualization resource.
+# core: 8.x
+package: VisualN
+dependencies:
+  - visualn
+  - visualn_drawings_library
+
+# Information added by Drupal.org packaging script on 2018-02-10
+version: '8.x-1.0-alpha10'
+core: '8.x'
+project: 'visualn'
+datestamp: 1518264190

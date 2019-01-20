@@ -1,0 +1,17 @@
+name: 'Private Message Node.js'
+description: 'Creates an integration between the Private Message module and a Node.js back end'
+type: module
+# core: '8.x'
+package: 'Private Message'
+
+dependencies:
+  - private_message:private_message
+  - vendor_stream_wrapper:vendor_stream_wrapper
+
+configure: private_message.admin_config.config
+
+# Information added by Drupal.org packaging script on 2018-06-01
+version: '8.x-1.0-beta13'
+core: '8.x'
+project: 'private_message_nodejs'
+datestamp: 1527844687

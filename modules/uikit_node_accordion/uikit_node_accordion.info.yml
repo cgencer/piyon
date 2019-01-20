@@ -1,0 +1,13 @@
+name: Uikit Node Accordion
+type: module
+description: 'Provides a Views style plugin. Requires uikit'
+package: Views
+# core: '8.x'
+dependencies:
+  - views
+
+# Information added by Drupal.org packaging script on 2017-03-31
+version: '8.x-1.0-alpha1'
+core: '8.x'
+project: 'uikit_node_accordion'
+datestamp: 1490954892

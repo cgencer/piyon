@@ -1,0 +1,14 @@
+name: Mason example
+type: module
+description: 'Provides Mason examples.'
+# version: VERSION
+# core: 8.x
+package: Blazy
+dependencies:
+  - mason
+
+# Information added by Drupal.org packaging script on 2016-11-29
+version: '8.x-1.0-beta4'
+core: '8.x'
+project: 'mason'
+datestamp: 1480434802

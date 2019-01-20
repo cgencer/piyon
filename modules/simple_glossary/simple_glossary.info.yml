@@ -1,0 +1,16 @@
+name: Simple Glossary
+description: An alphabetical list of words relating to a specific subject, text, or dialect, with explanations; a brief dictionary.
+package: Simple Glossary - A brief dictionary
+
+type: module
+# version: '8.x-1.0'
+
+# Information added by Drupal.org packaging script on August 09, 2018
+# core: 8.x
+# project: 'simple_glossary'
+# datestamp: 1534642441    // August 19, 2018
+# Information added by Drupal.org packaging script on 2018-08-19
+version: '8.x-1.1'
+core: '8.x'
+project: 'simple_glossary'
+datestamp: 1534642986

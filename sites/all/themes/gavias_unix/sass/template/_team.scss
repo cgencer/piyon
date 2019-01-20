@@ -1,0 +1,187 @@
+.team-teaser-1{
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: $white;
+  .team-image{
+    position: relative;
+    text-align: center;
+  }
+  .team-content{
+    padding: 20px;
+  
+  }
+  .team-name{
+    font-weight: 500;
+    color: $black;
+    line-height: 24px;
+    font-family: $font-second;
+    font-size: 16px;
+  }
+  .team-job{
+    font-size: 12px;
+    color: $theme-color;
+  }
+  .team-body{
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .socials{
+    margin-top: 10px;
+    display: none;
+  }
+  .team-skills{
+    .progress{
+      margin-bottom: 11px!important;
+      height: 2px!important;
+      .progress-bar span{
+        top: -4px!important;
+      }
+      .percentage{
+        font-size: 11px!important;
+        top: -20px;
+      }
+    }
+  }
+  &:hover{
+    .team-image{
+      &:after{
+        @include opacity(1);
+        @include scale(1);
+      }
+    }
+  }  
+}
+
+.team-grid{
+  .team-block{
+    margin-bottom: 30px;
+  }
+}
+
+.team-list{
+  .view-content-wrap{
+    .item{
+      float: left;
+      width: 100%;
+      margin-top: 30px;
+    }
+  }
+  .team-block{
+    float: left;
+    width: 100%;
+    .team-image{
+      width: 40%;
+      float: left;
+      @media(max-width: 600px){
+        width: 100%;
+      }
+    }
+    .team-content{
+      padding: 20px;
+      width: 60%;
+      float: left;
+      @media(max-width: 600px){
+        width: 100%;
+      }
+      .team-skills{
+        margin-top: 10px;
+      }
+      .team-body{
+        display: none!important;
+      }
+    }
+  }
+}
+
+.team-single-page{
+  .team-name{
+    margin-bottom: 15px;
+    .name{
+      font-size: 30px;
+      font-weight: 500;
+      color: $black;
+      line-height: 42px;
+    }
+    .job{
+      font-size: 12px;
+      color: #999999;
+    }
+    .line{
+      text-align: center;
+      float: left;
+      span{
+        @include size(30px, 5px);
+        @include border-radius(10px);
+        display: inline-block;
+        margin: 0 5px;
+        &.one{
+          background: #5EB4E7;
+          margin-left: 0;
+        }
+        &.second{
+          background: #F8C44F;
+        }
+        &.three{
+          background: #F49626;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  .socials{
+    margin-top: 10px;
+  }
+  .heading{
+    font-size: 18px;
+    font-weight: 500;
+    color: $black;
+  }
+  .team-contact{
+    margin-bottom: 25px;
+  }
+  .team-contact, .team-education{
+    .content-inner{
+      color: #999999;
+      font-size: 13px;
+      line-height: 28px;
+    }
+  }
+  .team-education{
+    .field__item{
+      padding-left: 20px;
+      position: relative;
+      &:after{
+        content: "";
+        @include size(6px, 6px);
+        background: $theme-color;
+        position: absolute;
+        top: 13px;
+        left: 0;
+        @include border-radius(50%);
+        z-index: 1;
+      }
+    }
+  }
+  .team-info{
+    margin-bottom: 30px!important;
+  }
+  .team-quote{
+    font-size: 16px;
+    color: #999999;
+    margin-top: 20px;
+    padding-left: 50px;
+    position: relative;
+    &:after{
+      font-family: "FontAwesome";
+      content: "\f10d";
+      left: 0;
+      top: 0;
+      position: absolute;
+      z-index: 1;
+      color: $theme-color;
+      font-size: 24px;
+      text-align: center;
+      line-height: 40px;
+    }
+  }
+}

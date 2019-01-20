@@ -1,0 +1,36 @@
+diff --git a/drupalchat.module b/drupalchat.module
+index 87cb7ec..86d6933 100755
+--- a/drupalchat.module
++++ b/drupalchat.module
+@@ -232,7 +232,7 @@ function drupalchat_page_attachments(array &$attachments) {
+       'formId' => 'drupalchat_send',
+       'formToken' => $token_generator->get('drupalchat_send'),
+       'statusUrl' => Url::fromRoute('drupalchat.status', array(), array('absolute' => TRUE))->toString(),
+-      'status' => $status,
++      'status' => isset($status) ? $status : DRUPALCHAT_USER_ONLINE,
+       'goOnline' => t('Go Online'),
+       'goIdle' => t('Go Idle'),
+       'newMessage' => t('New chat message!'),
+@@ -254,8 +254,20 @@ function drupalchat_page_attachments(array &$attachments) {
+     if($polling_method == DRUPALCHAT_AJAX) {
+       $my_settings['refresh_rate'] = \Drupal::config('drupalchat.settings')->get('drupalchat_refresh_rate') ?: 2;
+     }
+-    if($polling_method != DRUPALCHAT_COMMERCIAL) {
+-      $my_settings['username'] = ($user->id())?$user_name:$a_name;
++    if ($polling_method != DRUPALCHAT_COMMERCIAL) {
++      if ($user->id()) {
++        if (isset($account)) {
++          $user_name = isset($user_name) ? $user_name : $user_name = Html::escape(user_format_name($account));
++        }
++        else {
++          $account = \Drupal\user\Entity\user::load($user->id());
++          $user_name = isset($user_name) ? $user_name : $user_name = Html::escape(user_format_name($account));
++        }
++      }
++      else {
++        $user_name = $a_name;
++      }
++      $my_settings['username'] = $user_name;
+       $my_settings['uid'] = ($user->id())?$user->id():'0-'.drupalchatController::_drupalchat_get_sid();
+       $my_settings['threadHistoryUrl'] = Url::fromRoute('drupalchat.thread-history', array(), array('absolute' => TRUE))->toString();
+     }
